@@ -1,0 +1,44 @@
+#include <iostream>
+
+class Student {
+private:
+    char name[50];
+    int course;
+    bool gender;
+
+public:
+    void changeCourse(int newCourse) {
+        course = newCourse;
+    }
+
+    void enterName() {
+        std::cout << "Enter student's name: ";
+        std::cin.getline(name, 50);
+    }
+
+    void enterGender() {
+        int genderInput;
+        std::cout << "Enter student's gender (0 - Female, 1 - Male): ";
+        std::cin >> genderInput;
+        gender = static_cast<bool>(genderInput);
+    }
+
+    void displayInfo() {
+        std::cout << "Student's name: " << name << std::endl;
+        std::cout << "Course: " << course << std::endl;
+        std::cout << "Gender: " << (gender ? "Male" : "Female") << std::endl;
+    }
+};
+
+int main() {
+    Student student;
+
+    student.enterName();
+    student.enterGender();
+    student.changeCourse(3);
+
+    std::cout << "\nStudent Information:\n";
+    student.displayInfo();
+
+    return 0;
+}
